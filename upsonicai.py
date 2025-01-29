@@ -2,9 +2,11 @@ from fastapi import FastAPI, HTTPException
 from fastapi.responses import HTMLResponse
 from pydantic import BaseModel
 from upsonic import UpsonicClient, Task, AgentConfiguration, ObjectResponse
+from dotenv import load_dotenv
 import os
 
-print(os.getenv("AZURE_OPENAI_ENDPOINT"))
+
+load_dotenv()
 # Upsonic Client'ı Başlat
 client = UpsonicClient("localserver")
 client.set_config("AZURE_OPENAI_ENDPOINT", os.getenv("AZURE_OPENAI_ENDPOINT"))
